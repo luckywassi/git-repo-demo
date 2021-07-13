@@ -15,10 +15,12 @@ function Authenticate({ location }) {
 }
 
 export default function App() {
+  const hostname=document.location.host;
+  console.log(hostname)
   return (
     <div>
       <Switch>
-        <Route exact path="/login" component={Login} />
+        <Route exact path={`${hostname}/login`} component={Login} />
         <Route component={Authenticate} />
       </Switch>
     </div>
