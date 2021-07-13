@@ -20,7 +20,7 @@ export default function App() {
   return (
     <div>
       <Switch>
-        <Route exact path={`${hostname}/login`} component={Login} />
+        <Route exact path='/login' component={Login} />
         <Route component={Authenticate} />
       </Switch>
     </div>
