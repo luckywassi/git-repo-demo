@@ -42,7 +42,6 @@ export function useIterator(items = [], showItems = 4) {
 		if (j === items.length) {
 			if (items.length === 0 || items.length <= showItems) return;
 			//below code will execute when j===items.length and items.length > showitems
-			console.log('in j===items.length');
 			setIndex(0);
 			setJIndex(showItems);
 			return;

@@ -1,7 +1,13 @@
 import React from 'react';
 import { useIterator } from './hooks/useIterator';
 export default function RepoMenu({ repositories, login }) {
-	const [items, previous, next, i, j] = useIterator(repositories);
+	const showItemsPerPage = 7;
+	const [items, previous, next, i, j] = useIterator(repositories, showItemsPerPage);
+	const pages =
+		repositories.length % showItemsPerPage === 0
+			? repositories.length / showItemsPerPage
+			: Math.floor(repositories.length / showItemsPerPage) + 1;
+	const currentPage = i / showItemsPerPage + 1;
 	return (
 		<>
 			{/* as j will be greater than 0 if there is atleast one repo */}
@@ -21,7 +27,9 @@ export default function RepoMenu({ repositories, login }) {
 							</p>
 						))}
 						<button onClick={previous}>&lt;</button>
-						<span>Navigate</span>
+						<span style={{ fontSize: '0.8rem' }}>
+							Page {currentPage} out of {pages}
+						</span>
 						<button onClick={next}>&gt;</button>
 					</div>
 				</>
